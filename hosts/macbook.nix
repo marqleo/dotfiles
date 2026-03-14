@@ -14,4 +14,16 @@
 	};
 
 	system.stateVersion = 4;
+
+	homebrew = {
+		enable = true;
+		onActivation = {
+			cleanup = "zap";
+			autoUpdate = true;
+			upgrade = true;
+		};
+		casks = [
+			"ghostty"
+		];
+	};
 }
