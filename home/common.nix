@@ -53,4 +53,17 @@
     clock24 = true;
     terminal = "tmux-256color";
   };
+
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+    package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
+    settings = {
+      theme = "Carbonfox";
+      font-size = 14;
+      macos-option-as-alt = true;
+      window-padding-x = 10;
+      window-padding-y = 10;
+    };
+  };
 }
