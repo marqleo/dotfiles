@@ -11,6 +11,9 @@
 		fd
 		gcc
 		gnumake
+    haskellPackages.cabal-fmt
+    haskellPackages.fourmolu
+    nixfmt
 	];
 
 	programs.git = {
