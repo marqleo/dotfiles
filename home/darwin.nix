@@ -1,10 +1,11 @@
-{ pkgs, ... }: {
-	imports = [ ./common.nix ];
+{ pkgs, ... }:
+{
+  imports = [ ./common.nix ];
 
-	home.username = "leonardo";
-	home.homeDirectory = "/Users/leonardo";
+  home.username = "leonardo";
+  home.homeDirectory = "/Users/leonardo";
 
-	home.packages = with pkgs; [
-		coreutils
-	];
+  home.packages = with pkgs; [
+    coreutils
+  ];
 }
