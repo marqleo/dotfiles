@@ -29,6 +29,10 @@
 	};
 
 	xdg.configFile."nvim".source = ./nvim;
+	xdg.configFile."nvim/lazy-lock.json" = {
+    source = ./nvim/lazy-lock.json;
+    force = true;
+  };
 
 	home.sessionVariables = {
 		EDITOR = "nvim";
