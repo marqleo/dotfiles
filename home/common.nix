@@ -15,6 +15,8 @@
     haskellPackages.cabal-fmt
     haskellPackages.fourmolu
     nixfmt
+    nil
+    statix
   ];
 
   programs.git = {
