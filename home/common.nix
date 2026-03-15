@@ -26,6 +26,12 @@
 
 	programs.zsh = {
 		enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ 
+        "git" 
+      ];
+    };
 	};
 
 	xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
