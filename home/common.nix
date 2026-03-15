@@ -33,7 +33,17 @@
 	xdg.configFile."nvim/lazy-lock.json".source = 
     config.lib.file.mkOutOfStoreSymlink "/Users/leonardo/dotfiles-nix/home/nvim/lazy-lock.json";
 
-	home.sessionVariables = {
+  home.sessionVariables = {
 		EDITOR = "nvim";
 	};
+
+  programs.tmux = {
+    enable = true;
+    prefix = "C-a";
+    escapeTime = 0;
+    focusEvents = true;
+    keyMode = "vi";
+    clock24 = true;
+    terminal = "tmux-256color";
+  };
 }
