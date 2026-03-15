@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
 	home.stateVersion = "25.11";
 
 	home.packages = with pkgs; [
@@ -28,11 +28,10 @@
 		enable = true;
 	};
 
-	xdg.configFile."nvim".source = ./nvim;
-	xdg.configFile."nvim/lazy-lock.json" = {
-    source = ./nvim/lazy-lock.json;
-    force = true;
-  };
+	xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
+	xdg.configFile."nvim/lua".source = ./nvim/lua;
+	xdg.configFile."nvim/lazy-lock.json".source = 
+    config.lib.file.mkOutOfStoreSymlink "/Users/leonardo/dotfiles-nix/home/nvim/lazy-lock.json";
 
 	home.sessionVariables = {
 		EDITOR = "nvim";
