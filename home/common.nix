@@ -9,6 +9,8 @@
 		bat
 		jq
 		fd
+		gcc
+		gnumake
 	];
 
 	programs.git = {
@@ -24,5 +26,11 @@
 
 	programs.zsh = {
 		enable = true;
+	};
+
+	xdg.configFile."nvim".source = ./nvim;
+
+	home.sessionVariables = {
+		EDITOR = "nvim";
 	};
 }
