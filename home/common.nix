@@ -31,7 +31,7 @@
       plugins = [ 
         "git" 
       ];
-      theme = "random";
+      theme = "eastwood";
     };
 	};
 

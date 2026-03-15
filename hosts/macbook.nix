@@ -5,7 +5,7 @@
 	users.users.leonardo = {
 		name = "leonardo";
 		home = "/Users/leonardo";
-	};
+  };
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -28,10 +28,4 @@
 			"ghostty"
 		];
 	};
-
-  home-manager.users.leonardo = {
-    programs.zsh.shellAliases = {
-      drb = "darwin-rebuild switch --flake ~/dotfiles-nix#MacBookPro";
-    };
-  };
 }
