@@ -31,6 +31,7 @@
       plugins = [ 
         "git" 
       ];
+      theme = "random";
     };
 	};
 
