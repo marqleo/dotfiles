@@ -17,6 +17,8 @@
     nixfmt
     nil
     statix
+    ghc
+    cabal-install
   ];
 
   programs.git = {
