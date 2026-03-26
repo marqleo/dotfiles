@@ -43,11 +43,6 @@
     };
   };
 
-  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
-  xdg.configFile."nvim/lua".source = ./nvim/lua;
-  xdg.configFile."nvim/lazy-lock.json".source =
-    config.lib.file.mkOutOfStoreSymlink "/Users/leonardo/dotfiles-nix/home/nvim/lazy-lock.json";
-
   home.sessionVariables = {
     EDITOR = "nvim";
   };
