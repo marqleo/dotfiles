@@ -108,6 +108,83 @@
           action = "<cmd>qa<CR>";
           desc = "Quit All";
         }
+        {
+          key = "<leader>/";
+          mode = "n";
+          silent = true;
+          action = "<cmd>FzfLua live_grep<CR>";
+          desc = "Grep (fzf-lua)";
+        }
+        {
+          key = "<leader>,";
+          mode = "n";
+          silent = true;
+          action = "<cmd>FzfLua buffers<CR>";
+          desc = "List buffers (fzf-lua)";
+        }
+        {
+          key = "<leader>bd";
+          mode = "n";
+          silent = true;
+          action = "<cmd>bd<CR>";
+          desc = "Delete buffer";
+        }
+        {
+          key = "H";
+          mode = "n";
+          silent = true;
+          action = "<cmd>bp<CR>";
+          desc = "Previous buffer";
+        }
+        {
+          key = "L";
+          mode = "n";
+          silent = true;
+          action = "<cmd>bn<CR>";
+          desc = "Next buffer";
+        }
+        {
+          key = "<C-h>";
+          mode = "n";
+          action = "<C-w>h";
+          desc = "Move to left window";
+        }
+        {
+          key = "<C-j>";
+          mode = "n";
+          action = "<C-w>j";
+          desc = "Move to bottom window";
+        }
+        {
+          key = "<C-k>";
+          mode = "n";
+          action = "<C-w>k";
+          desc = "Move to top window";
+        }
+        {
+          key = "<C-l>";
+          mode = "n";
+          action = "<C-w>l";
+          desc = "Move to right window";
+        }
+        {
+          key = "<leader>wq";
+          mode = "n";
+          action = "<cmd>wq<CR>";
+          desc = "Quit window";
+        }
+        {
+          key = "<leader>|";
+          mode = "n";
+          action = "<cmd>vsplit<CR>";
+          desc = "Split window vertically";
+        }
+        {
+          key = "<leader>-";
+          mode = "n";
+          action = "<cmd>split<CR>";
+          desc = "Split window horizontally";
+        }
       ];
     };
   };
