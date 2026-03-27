@@ -82,9 +82,16 @@
       };
       vim.lsp = {
         enable = true;
+        formatOnSave = true;
+        null-ls.enable = true;
       };
       vim.languages = {
-        nix.enable = true;
+        nix = {
+          enable = true;
+          lsp.enable = true;
+          format.enable = true;
+          format.type = "nixfmt";
+        };
       };
       vim.binds = {
         whichKey = {
@@ -168,10 +175,16 @@
           desc = "Move to right window";
         }
         {
-          key = "<leader>wq";
+          key = "<leader>wqq";
           mode = "n";
           action = "<cmd>wq<CR>";
           desc = "Quit window";
+        }
+        {
+          key = "<leader>wqa";
+          mode = "n";
+          action = "<cmd>wq<CR>";
+          desc = "Quit All window";
         }
         {
           key = "<leader>|";
