@@ -93,6 +93,22 @@
         };
       };
       vim.fzf-lua.enable = true;
+      vim.keymaps = [
+        {
+          key = "<leader><leader>";
+          mode = "n";
+          silent = true;
+          action = "<cmd>FzfLua files<CR>";
+          desc = "Find files (fzf-lua)";
+        }
+        {
+          key = "<leader>q";
+          mode = "n";
+          silent = true;
+          action = "<cmd>qa<CR>";
+          desc = "Quit All";
+        }
+      ];
     };
   };
 }
