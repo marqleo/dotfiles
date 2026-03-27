@@ -69,4 +69,30 @@
       window-padding-y = 10;
     };
   };
+
+  programs.nvf = {
+    enable = true;
+    settings = {
+      vim.lazy.enable = true;
+      vim.opts = {
+        tabstop = 2;
+        softtabstop = 2;
+        shiftwidth = 2;
+        smartindent = true;
+      };
+      vim.lsp = {
+        enable = true;
+      };
+      vim.languages = {
+        nix.enable = true;
+      };
+      vim.binds = {
+        whichKey = {
+          enable = true;
+          setupOpts.preset = "helix";
+        };
+      };
+      vim.fzf-lua.enable = true;
+    };
+  };
 }

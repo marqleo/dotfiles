@@ -13,6 +13,11 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +26,7 @@
       nixpkgs,
       home-manager,
       nix-darwin,
+      nvf,
       ...
     }:
     {
@@ -35,7 +41,12 @@
 
             home-manager.backupFileExtension = "before-nix";
 
-            home-manager.users.leonardo = ./home/darwin.nix;
+            home-manager.users.leonardo = {
+              imports = [
+                nvf.homeManagerModules.default
+                ./home/darwin.nix
+              ];
+            };
           }
         ];
       };
