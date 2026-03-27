@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
@@ -60,7 +63,10 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
-    package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
+    package =
+      if pkgs.stdenv.isDarwin
+      then null
+      else pkgs.ghostty;
     settings = {
       theme = "Carbonfox";
       font-size = 14;
@@ -86,11 +92,11 @@
         null-ls.enable = true;
       };
       vim.languages = {
+        enableTreesitter = true;
         nix = {
           enable = true;
           lsp.enable = true;
           format.enable = true;
-          format.type = "nixfmt";
         };
       };
       vim.binds = {
@@ -107,13 +113,6 @@
           silent = true;
           action = "<cmd>FzfLua files<CR>";
           desc = "Find files (fzf-lua)";
-        }
-        {
-          key = "<leader>q";
-          mode = "n";
-          silent = true;
-          action = "<cmd>qa<CR>";
-          desc = "Quit All";
         }
         {
           key = "<leader>/";
@@ -177,7 +176,7 @@
         {
           key = "<leader>wqq";
           mode = "n";
-          action = "<cmd>wq<CR>";
+          action = "<cmd>q<CR>";
           desc = "Quit window";
         }
         {
