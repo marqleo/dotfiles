@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
@@ -136,7 +132,7 @@
           mode = "n";
           silent = true;
           action = "<cmd>qa<CR>";
-          desc = "Find files (fzf-lua)";
+          desc = "Quit All";
         }
         {
           key = "<leader><leader>";
@@ -211,12 +207,6 @@
           desc = "Quit window";
         }
         {
-          key = "<leader>wqa";
-          mode = "n";
-          action = "<cmd>wq<CR>";
-          desc = "Quit All window";
-        }
-        {
           key = "<leader>|";
           mode = "n";
           action = "<cmd>vsplit<CR>";
@@ -229,6 +219,16 @@
           desc = "Split window horizontally";
         }
       ];
+      vim.tabline.nvimBufferline = {
+        enable = true;
+        setupOpts = {
+          options = {
+            always_show_bufferline = false;
+            numbers = "none";
+            show_close_icon = false;
+          };
+        };
+      };
     };
   };
 }
