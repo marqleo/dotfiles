@@ -64,7 +64,7 @@
       bind | split-window -h -c "#{pane_current_path}"
 
       unbind '"'
-      bind - split-window -v -c "#{pane_current_path}"'
+      bind - split-window -v -c "#{pane_current_path}"
 
       # Vim-like copy/paste
       bind-key -T copy-mode-vi v send-keys -X begin-selection
