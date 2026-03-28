@@ -1,9 +1,11 @@
 {pkgs, ...}: {
+  imports = [
+    ../programs/neovim
+  ];
+
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    neovim
-    tmux
     fzf
     ripgrep
     bat
@@ -11,14 +13,10 @@
     fd
     gcc
     gnumake
-    haskellPackages.cabal-fmt
-    haskellPackages.fourmolu
-    haskellPackages.haskell-language-server
-    nixfmt
-    nil
     statix
     ghc
     cabal-install
+    eza
   ];
 
   programs.git = {
@@ -97,6 +95,7 @@
     };
   };
 
+  /*
   programs.nvf = {
     enable = true;
     settings = {
@@ -239,4 +238,5 @@
       };
     };
   };
+  */
 }
