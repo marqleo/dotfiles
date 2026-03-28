@@ -58,6 +58,30 @@
     keyMode = "vi";
     clock24 = true;
     terminal = "tmux-256color";
+    extraConfig = ''
+      set -as terminal-features ",xterm-256color:RGB"
+
+      set-option -g renumber-windows on
+
+      unbind %
+      bind | split-window -h -c "#{pane_current_path}"
+
+      unbind '"'
+      bind - split-window -v -c "#{pane_current_path}"'
+
+      # Vim-like copy/paste
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi 'C-v' send-keys -X rectangle-toggle
+
+      bind-key -T copy-mode-vi y send-keys -X copy-pipe "pbcopy"
+      bind-key -T copy-mode-vi Enter send-keys -X copy-pipe "pbcopy"
+
+      # Pane navigation
+      bind-key -n 'M-h' select-pane -L
+      bind-key -n 'M-j' select-pane -D
+      bind-key -n 'M-k' select-pane -U
+      bind-key -n 'M-l' select-pane -R
+    '';
   };
 
   programs.ghostty = {
@@ -107,6 +131,13 @@
       };
       vim.fzf-lua.enable = true;
       vim.keymaps = [
+        {
+          key = "<leader>qq";
+          mode = "n";
+          silent = true;
+          action = "<cmd>qa<CR>";
+          desc = "Find files (fzf-lua)";
+        }
         {
           key = "<leader><leader>";
           mode = "n";
@@ -174,7 +205,7 @@
           desc = "Move to right window";
         }
         {
-          key = "<leader>wqq";
+          key = "<leader>wd";
           mode = "n";
           action = "<cmd>q<CR>";
           desc = "Quit window";
