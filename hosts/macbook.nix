@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   system.primaryUser = "leonardo";
   ids.gids.nixbld = 350;
 
@@ -18,8 +17,10 @@
   };
 
   system.stateVersion = 4;
-
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    reattach = true;
+  };
 
   homebrew = {
     enable = true;
