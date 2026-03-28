@@ -13,6 +13,7 @@
     gnumake
     haskellPackages.cabal-fmt
     haskellPackages.fourmolu
+    haskellPackages.haskell-language-server
     nixfmt
     nil
     statix
@@ -106,10 +107,10 @@
         shiftwidth = 2;
         smartindent = true;
       };
+      vim.searchCase = "smart";
       vim.lsp = {
         enable = true;
         formatOnSave = true;
-        null-ls.enable = true;
       };
       vim.languages = {
         enableTreesitter = true;
@@ -117,6 +118,10 @@
           enable = true;
           lsp.enable = true;
           format.enable = true;
+        };
+        haskell = {
+          enable = true;
+          lsp.enable = true;
         };
       };
       vim.binds = {
