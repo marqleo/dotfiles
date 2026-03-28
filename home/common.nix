@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ../programs/neovim
   ];
@@ -82,10 +83,7 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
-    package =
-      if pkgs.stdenv.isDarwin
-      then null
-      else pkgs.ghostty;
+    package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
     settings = {
       theme = "Carbonfox";
       font-size = 14;
@@ -94,149 +92,4 @@
       window-padding-y = 10;
     };
   };
-
-  /*
-  programs.nvf = {
-    enable = true;
-    settings = {
-      vim.lazy.enable = true;
-      vim.opts = {
-        tabstop = 2;
-        softtabstop = 2;
-        shiftwidth = 2;
-        smartindent = true;
-      };
-      vim.searchCase = "smart";
-      vim.lsp = {
-        enable = true;
-        formatOnSave = true;
-      };
-      vim.languages = {
-        enableTreesitter = true;
-        nix = {
-          enable = true;
-          lsp.enable = true;
-          format.enable = true;
-        };
-        haskell = {
-          enable = true;
-          lsp.enable = true;
-        };
-      };
-      vim.binds = {
-        whichKey = {
-          enable = true;
-          setupOpts.preset = "helix";
-        };
-      };
-      vim.fzf-lua.enable = true;
-      vim.keymaps = [
-        {
-          key = "<leader>qq";
-          mode = "n";
-          silent = true;
-          action = "<cmd>qa<CR>";
-          desc = "Quit All";
-        }
-        {
-          key = "<leader><leader>";
-          mode = "n";
-          silent = true;
-          action = "<cmd>FzfLua files<CR>";
-          desc = "Find files (fzf-lua)";
-        }
-        {
-          key = "<leader>/";
-          mode = "n";
-          silent = true;
-          action = "<cmd>FzfLua live_grep<CR>";
-          desc = "Grep (fzf-lua)";
-        }
-        {
-          key = "<leader>,";
-          mode = "n";
-          silent = true;
-          action = "<cmd>FzfLua buffers<CR>";
-          desc = "List buffers (fzf-lua)";
-        }
-        {
-          key = "<leader>bd";
-          mode = "n";
-          silent = true;
-          action = "<cmd>bd<CR>";
-          desc = "Delete buffer";
-        }
-        {
-          key = "H";
-          mode = "n";
-          silent = true;
-          action = "<cmd>bp<CR>";
-          desc = "Previous buffer";
-        }
-        {
-          key = "L";
-          mode = "n";
-          silent = true;
-          action = "<cmd>bn<CR>";
-          desc = "Next buffer";
-        }
-        {
-          key = "<C-h>";
-          mode = "n";
-          action = "<C-w>h";
-          desc = "Move to left window";
-        }
-        {
-          key = "<C-j>";
-          mode = "n";
-          action = "<C-w>j";
-          desc = "Move to bottom window";
-        }
-        {
-          key = "<C-k>";
-          mode = "n";
-          action = "<C-w>k";
-          desc = "Move to top window";
-        }
-        {
-          key = "<C-l>";
-          mode = "n";
-          action = "<C-w>l";
-          desc = "Move to right window";
-        }
-        {
-          key = "<leader>wd";
-          mode = "n";
-          action = "<cmd>q<CR>";
-          desc = "Quit window";
-        }
-        {
-          key = "<leader>|";
-          mode = "n";
-          action = "<cmd>vsplit<CR>";
-          desc = "Split window vertically";
-        }
-        {
-          key = "<leader>-";
-          mode = "n";
-          action = "<cmd>split<CR>";
-          desc = "Split window horizontally";
-        }
-      ];
-      vim.tabline.nvimBufferline = {
-        enable = true;
-        setupOpts = {
-          options = {
-            always_show_bufferline = false;
-            numbers = "none";
-            show_close_icon = false;
-          };
-        };
-      };
-      vim.visuals.indent-blankline = {
-        enable = true;
-      };
-    };
-  };
-  */
 }
