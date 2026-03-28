@@ -10,14 +10,13 @@
     fzf
     ripgrep
     bat
+    eza
     jq
     fd
     gcc
     gnumake
-    statix
     ghc
     cabal-install
-    eza
   ];
 
   programs.git = {
@@ -40,10 +39,6 @@
       ];
       theme = "eastwood";
     };
-  };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
   };
 
   programs.tmux = {

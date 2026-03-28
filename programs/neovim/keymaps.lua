@@ -39,6 +39,12 @@ vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next diagnostic" })
 
--- Split
+-- Splits
 vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", { silent = true, desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", { silent = true, desc = "Split window horizontally" })
+
+-- Autocomplete
+vim.keymap.set("i", "<C-l>", "<C-x><C-o>", { desc = "Trigger completion" })
+
+-- oil
+vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open file explorer" })

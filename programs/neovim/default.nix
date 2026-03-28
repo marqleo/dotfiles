@@ -41,6 +41,10 @@
         plugin = conform-nvim;
         optional = true;
       }
+      {
+        plugin = oil-nvim;
+        optional = true;
+      }
     ];
 
     extraPackages = with pkgs; [
@@ -68,6 +72,8 @@
       ${builtins.readFile ./plugins/fzf-lua.lua}
       ${builtins.readFile ./plugins/lsp.lua}
       ${builtins.readFile ./plugins/conform.lua}
+      ${builtins.readFile ./plugins/conform.lua}
+      ${builtins.readFile ./plugins/oil.lua}
     '';
   };
 }
