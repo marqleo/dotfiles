@@ -16,9 +16,6 @@
         p.c
         p.nix
       ]))
-      nvim-lspconfig
-      nvim-cmp
-      cmp-nvim-lsp
 
       # Lazy loaded
       {
@@ -45,6 +42,14 @@
         plugin = oil-nvim;
         optional = true;
       }
+      {
+        plugin = mini-nvim;
+        optional = true;
+      }
+      {
+        plugin = nvim-paredit;
+        optional = true;
+      }
     ];
 
     extraPackages = with pkgs; [
@@ -66,14 +71,16 @@
       ${builtins.readFile ./options.lua}
       ${builtins.readFile ./keymaps.lua}
 
+      ${builtins.readFile ./plugins/treesitter.lua}
+      ${builtins.readFile ./plugins/lsp.lua}
       ${builtins.readFile ./plugins/which-key.lua}
       ${builtins.readFile ./plugins/ibl.lua}
       ${builtins.readFile ./plugins/bufferline.lua}
       ${builtins.readFile ./plugins/fzf-lua.lua}
-      ${builtins.readFile ./plugins/lsp.lua}
-      ${builtins.readFile ./plugins/conform.lua}
       ${builtins.readFile ./plugins/conform.lua}
       ${builtins.readFile ./plugins/oil.lua}
+      ${builtins.readFile ./plugins/mini.lua}
+      ${builtins.readFile ./plugins/paredit.lua}
     '';
   };
 }

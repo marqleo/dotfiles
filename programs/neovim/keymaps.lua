@@ -1,8 +1,8 @@
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { silent = true, desc = "Quit All" })
 
 -- Buffers
-vim.keymap.set("n", "H", "<cmd>BufferLineCycleNext<CR>", { silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "L", "<cmd>BufferLineCyclePrev<CR>", { silent = true, desc = "Next buffer" })
+vim.keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>", { silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "L", "<cmd>BufferLineCycleNext<CR>", { silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { silent = true, desc = "Delete buffer" })
 vim.keymap.set("n", "<leader>bp", "<cmd>:BufferLineTogglePin<CR>", { silent = true, desc = "Pin buffer" })
 
