@@ -1,4 +1,13 @@
 { pkgs, ... }:
+let
+  pluginFiles = builtins.readDir ./plugins;
+  toConfigFile = file: _: {
+    name = "nvim/lua/plugins/${file}";
+    value = {
+      source = ./plugins + "/${file}";
+    };
+  };
+in
 {
   programs.neovim = {
     enable = true;
@@ -66,21 +75,12 @@
       ormolu
     ];
 
-    initLua = ''
-      ${builtins.readFile ./init.lua}
-      ${builtins.readFile ./options.lua}
-      ${builtins.readFile ./keymaps.lua}
+    initLua = builtins.readFile ./init.lua;
+  };
 
-      ${builtins.readFile ./plugins/treesitter.lua}
-      ${builtins.readFile ./plugins/lsp.lua}
-      ${builtins.readFile ./plugins/which-key.lua}
-      ${builtins.readFile ./plugins/ibl.lua}
-      ${builtins.readFile ./plugins/bufferline.lua}
-      ${builtins.readFile ./plugins/fzf-lua.lua}
-      ${builtins.readFile ./plugins/conform.lua}
-      ${builtins.readFile ./plugins/oil.lua}
-      ${builtins.readFile ./plugins/mini.lua}
-      ${builtins.readFile ./plugins/paredit.lua}
-    '';
+  xdg.configFile = {
+    "nvim/lua/options.lua".source = ./options.lua;
+    "nvim/lua/keymaps.lua".source = ./keymaps.lua;
+    "nvim/lua/plugins".source = ./plugins;
   };
 }
