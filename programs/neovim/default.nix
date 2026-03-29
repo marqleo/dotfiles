@@ -1,13 +1,4 @@
 { pkgs, ... }:
-let
-  pluginFiles = builtins.readDir ./plugins;
-  toConfigFile = file: _: {
-    name = "nvim/lua/plugins/${file}";
-    value = {
-      source = ./plugins + "/${file}";
-    };
-  };
-in
 {
   programs.neovim = {
     enable = true;
@@ -45,10 +36,6 @@ in
       }
       {
         plugin = conform-nvim;
-        optional = true;
-      }
-      {
-        plugin = oil-nvim;
         optional = true;
       }
       {

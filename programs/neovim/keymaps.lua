@@ -1,10 +1,8 @@
+-- General
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { silent = true, desc = "Quit All" })
 
 -- Buffers
-vim.keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>", { silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "L", "<cmd>BufferLineCycleNext<CR>", { silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { silent = true, desc = "Delete buffer" })
-vim.keymap.set("n", "<leader>bp", "<cmd>:BufferLineTogglePin<CR>", { silent = true, desc = "Pin buffer" })
 
 -- Windows
 vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to left window" })
@@ -14,11 +12,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to right wi
 vim.keymap.set("n", "<leader>wd", "<cmd>q<CR>", { silent = true, desc = "Quit window" })
 vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", { silent = true, desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", { silent = true, desc = "Split window horizontally" })
-
--- fzf-lua
-vim.keymap.set("n", "<leader><space>", "<cmd>FzfLua files<CR>", { silent = true, desc = "Find files" })
-vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<CR>", { silent = true, desc = "Grep" })
-vim.keymap.set("n", "<leader>,", "<cmd>FzfLua buffers<CR>", { silent = true, desc = "List buffers" })
 
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
@@ -39,12 +32,5 @@ vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next diagnostic" })
 
--- Splits
-vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", { silent = true, desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", { silent = true, desc = "Split window horizontally" })
-
 -- Autocomplete
 vim.keymap.set("i", "<C-l>", "<C-x><C-o>", { desc = "Trigger completion" })
-
--- oil
-vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open file explorer" })
