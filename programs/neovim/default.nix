@@ -9,16 +9,19 @@
     plugins = with pkgs.vimPlugins; [
       # Always loaded
       lz-n
-      (nvim-treesitter.withPlugins (p: [
-        p.haskell
-        p.lua
-        p.clojure
-        p.java
-        p.c
-        p.nix
-      ]))
 
       # Lazy loaded
+      {
+        plugin = nvim-treesitter.withPlugins (p: [
+          p.haskell
+          p.lua
+          p.clojure
+          p.java
+          p.c
+          p.nix
+        ]);
+        optional = true;
+      }
       {
         plugin = which-key-nvim;
         optional = true;

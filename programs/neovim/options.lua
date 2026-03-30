@@ -34,7 +34,3 @@ vim.opt.splitbelow = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-
--- newrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
