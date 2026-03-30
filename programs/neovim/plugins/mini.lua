@@ -1,9 +1,11 @@
-vim.api.nvim_create_autocmd("BufReadPre", {
-	once = true,
-	callback = function()
-		vim.cmd("packadd mini.nvim")
-		require("mini.pairs").setup()
-	end,
+require("lz.n").load({
+	{
+		"mini.nvim",
+		event = "BufReadPre",
+		after = function()
+			require("mini.pairs").setup()
+		end,
+	},
 })
 
 vim.api.nvim_create_autocmd("FileType", {

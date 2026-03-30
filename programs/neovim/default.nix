@@ -8,6 +8,7 @@
 
     plugins = with pkgs.vimPlugins; [
       # Always loaded
+      lz-n
       (nvim-treesitter.withPlugins (p: [
         p.haskell
         p.lua

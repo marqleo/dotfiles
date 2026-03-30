@@ -1,7 +1,9 @@
-vim.api.nvim_create_autocmd("VimEnter", {
-	once = true,
-	callback = function()
-		vim.cmd("packadd indent-blankline.nvim")
-		require("ibl").setup({})
-	end,
+require("lz.n").load({
+	{
+		"indent-blankline.nvim",
+		event = "VimEnter",
+		after = function()
+			require("ibl").setup({})
+		end,
+	},
 })

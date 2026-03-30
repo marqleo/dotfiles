@@ -1,22 +1,13 @@
-local loaded = false
-local function load()
-	if loaded then
-		return
-	end
-	vim.cmd("packadd fzf-lua")
-	require("fzf-lua").setup({})
-	loaded = true
-end
-
-vim.keymap.set("n", "<leader><space>", function()
-	load()
-	require("fzf-lua").files()
-end, { silent = true, desc = "Find files" })
-vim.keymap.set("n", "<leader>/", function()
-	load()
-	require("fzf-lua").live_grep()
-end, { silent = true, desc = "Grep" })
-vim.keymap.set("n", "<leader>,", function()
-	load()
-	require("fzf-lua").buffers()
-end, { silent = true, desc = "List buffers" })
+require("lz.n").load({
+	{
+		"fzf-lua",
+		keys = {
+			{ "<leader><space>", "<cmd>FzfLua files<CR>", desc = "Find files" },
+			{ "<leader>/", "<cmd>FzfLua live_grep<CR>", desc = "Grep" },
+			{ "<leader>,", "<cmd>FzfLua buffers<CR>", desc = "List buffers" },
+		},
+		after = function()
+			require("fzf-lua").setup({})
+		end,
+	},
+})
