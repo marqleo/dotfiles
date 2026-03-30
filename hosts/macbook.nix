@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   system.primaryUser = "leonardo";
   ids.gids.nixbld = 350;
 
@@ -11,6 +12,17 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.auto-optimise-store = true;
+
+  nix.gc = {
+    automatic = true;
+    interval = {
+      Weekday = 0;
+      Hour = 2;
+      Minute = 0;
+    };
+    options = "--delete-older-than 7d";
+  };
 
   system.defaults = {
     dock.autohide = true;
