@@ -1,8 +1,3 @@
-vim.lsp.config("hls", {
-	cmd = { "haskell-language-server-wrapper", "--lsp" },
-	filetypes = { "haskell", "lhaskell" },
-})
-
 vim.lsp.config("lua_ls", {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
@@ -24,7 +19,7 @@ vim.lsp.config("nixd", {
 	root_markers = { "flake.nix", ".git" },
 })
 
-vim.lsp.enable({ "hls", "lua_ls", "nixd" })
+vim.lsp.enable({ "lua_ls", "nixd" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)

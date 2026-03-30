@@ -40,6 +40,10 @@
         optional = true;
       }
       {
+        plugin = haskell-tools-nvim;
+        optional = true;
+      }
+      {
         plugin = mini-nvim;
         optional = true;
       }

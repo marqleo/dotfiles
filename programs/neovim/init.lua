@@ -8,6 +8,7 @@ require("keymaps")
 
 require("plugins.treesitter")
 require("plugins.lsp")
+require("plugins.haskell")
 require("plugins.which-key")
 require("plugins.ibl")
 require("plugins.bufferline")
