@@ -2,7 +2,7 @@
 {
   imports = [ ./common.nix ];
 
-  # linux-specific overrides here
+  targets.genericLinux.enable = true;
 
   home.username = "leonardo";
   home.homeDirectory = "/home/leonardo";
