@@ -17,6 +17,8 @@
     gnumake
     ghc
     cabal-install
+    hyperfine
+    haskellPackages.ghc-prof-flamegraph
   ];
 
   programs.git = {
