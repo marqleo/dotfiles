@@ -19,6 +19,7 @@
     cabal-install
     hyperfine
     haskellPackages.ghc-prof-flamegraph
+    firefox
   ];
 
   programs.git = {
