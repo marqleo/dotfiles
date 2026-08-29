@@ -20,6 +20,11 @@
     hyperfine
     haskellPackages.ghc-prof-flamegraph
     firefox
+
+    # LaTeX and ABNT requirements
+    texliveFull
+    zathura
+    python3Packages.pygments
   ];
 
   programs.git = {

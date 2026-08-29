@@ -9,6 +9,7 @@
     plugins = with pkgs.vimPlugins; [
       # Always loaded
       lz-n
+      vimtex
 
       # Lazy loaded
       {
@@ -19,6 +20,8 @@
           p.java
           p.c
           p.nix
+          p.latex
+          p.bibtex
         ]);
         optional = true;
       }
@@ -68,6 +71,10 @@
       # Haskell
       haskell-language-server
       ormolu
+
+      # LaTeX
+      texlab
+      ltex-ls
     ];
 
     initLua = builtins.readFile ./init.lua;
