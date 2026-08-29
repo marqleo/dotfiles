@@ -80,6 +80,10 @@
       bind-key -n 'M-j' select-pane -D
       bind-key -n 'M-k' select-pane -U
       bind-key -n 'M-l' select-pane -R
+
+      # Status
+      set-option -g status-position top
+      set-option -g status-justify absolute-centre
     '';
   };
 
