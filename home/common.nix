@@ -38,16 +38,10 @@
     };
   };
 
-  programs.zsh = {
+  programs.fish = {
     enable = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-      theme = "eastwood";
-    };
   };
+
 
   programs.tmux = {
     enable = true;
@@ -89,7 +83,8 @@
 
   programs.ghostty = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
+
     package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
     settings = {
       theme = "Carbonfox";
