@@ -32,3 +32,14 @@ end, { desc = "Next diagnostic" })
 
 -- Autocomplete
 vim.keymap.set("i", "<C-l>", "<C-x><C-o>", { desc = "Trigger completion" })
+
+-- Highlight
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { silent = true, desc = "Clear search highlight" })
+
+-- Stay in visual mode while indenting
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
+
+-- Move selected lines up/down in Visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })

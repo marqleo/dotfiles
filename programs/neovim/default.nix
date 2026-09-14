@@ -75,6 +75,10 @@
       # LaTeX
       texlab
       ltex-ls
+
+      # Utilities
+      tree-sitter
+      chafa
     ];
 
     initLua = builtins.readFile ./init.lua;

@@ -1,7 +1,8 @@
 return {
 	"mini.nvim",
-	event = "BufReadPre",
 	after = function()
+		require("mini.icons").setup()
+		require("mini.icons").mock_nvim_web_devicons()
 		require("mini.pairs").setup()
 
 		vim.api.nvim_create_autocmd("FileType", {
