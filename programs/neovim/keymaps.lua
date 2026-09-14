@@ -43,3 +43,20 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 -- Move selected lines up/down in Visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+
+-- Snippets
+vim.keymap.set({ "i", "s" }, "<Tab>", function()
+	if vim.snippet.active({ direction = 1 }) then
+		return "<cmd>lua vim.snippet.jump(1)<CR>"
+	else
+		return "<Tab>"
+	end
+end, { expr = true, desc = "Jump to next snippet placeholder" })
+
+vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+	if vim.snippet.active({ direction = -1 }) then
+		return "<cmd>lua vim.snippet.jump(-1)<CR>"
+	else
+		return "<S-Tab>"
+	end
+end, { expr = true, desc = "Jump to previous snippet placeholder" })

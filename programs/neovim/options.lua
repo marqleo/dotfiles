@@ -20,7 +20,6 @@ vim.opt.incsearch = true
 vim.opt.inccommand = "split"
 
 -- Appearence
-vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.wrap = false
@@ -28,8 +27,6 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
 
 -- Splits
 vim.opt.splitright = true

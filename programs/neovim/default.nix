@@ -57,6 +57,10 @@
         plugin = nvim-paredit;
         optional = true;
       }
+      {
+        plugin = kanagawa-nvim;
+        optional = true;
+      }
     ];
 
     extraPackages = with pkgs; [
