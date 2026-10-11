@@ -13,6 +13,7 @@
     eza
     jq
     fd
+    diffnav
     gcc
     gnumake
     ghc
@@ -35,6 +36,9 @@
         email = "marqleo@protonmail.com";
       };
       init.defaultBranch = "main";
+      pager = {
+        diff = "diffnav";
+      };
     };
   };
 
@@ -106,4 +110,9 @@
       window-padding-y = 10;
     };
   };
+
+  xdg.configFile."diffnav/config.yml".text = ''
+    ui:
+      sideBySide: false
+  '';
 }
