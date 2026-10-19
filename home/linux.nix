@@ -2,7 +2,19 @@
 {
   imports = [ ./common.nix ];
 
-  targets.genericLinux.enable = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    nvidia.acceptLicense = true;
+  };
+
+  targets.genericLinux = {
+    enable = true;
+    gpu.nvidia = {
+      enable = true;
+      inherit (pkgs.linuxPackages.nvidiaPackages.latest) version;
+      sha256 = pkgs.linuxPackages.nvidiaPackages.latest.src.outputHash;
+    };
+  };
 
   home.username = "leonardo";
   home.homeDirectory = "/home/leonardo";
