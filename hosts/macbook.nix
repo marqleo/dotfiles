@@ -3,9 +3,15 @@
   system.primaryUser = "leonardo";
   ids.gids.nixbld = 350;
 
+  programs.fish.enable = true;
+  environment.shells = [ pkgs.fish ];
+
+  users.knownUsers = [ "leonardo" ];
   users.users.leonardo = {
     name = "leonardo";
     home = "/Users/leonardo";
+    uid = 501;
+    shell = pkgs.fish;
   };
 
   nix.settings.experimental-features = [
