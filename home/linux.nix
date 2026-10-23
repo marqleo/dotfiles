@@ -8,6 +8,11 @@
   home.homeDirectory = "/home/leonardo";
   home.stateVersion = "26.05";
 
+  home.packages = with pkgs; [
+    firefox
+    zathura
+  ];
+
   nix.package = pkgs.nix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.gc = {
