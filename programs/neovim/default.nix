@@ -78,7 +78,7 @@
 
       # LaTeX
       texlab
-      ltex-ls
+      ltex-ls-plus
 
       # Utilities
       tree-sitter
