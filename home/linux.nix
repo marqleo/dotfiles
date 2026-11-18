@@ -1,18 +1,28 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports = [ ./common.nix ];
 
+  nixpkgs.overlays = [
+    inputs.nix-gl-host.overlays.default
+  ];
+
   nixpkgs.config = {
     allowUnfree = true;
-    nvidia.acceptLicense = true;
   };
 
   targets.genericLinux = {
     enable = true;
-    gpu.nvidia = {
-      enable = true;
-      inherit (pkgs.linuxPackages.nvidiaPackages.latest) version;
-      sha256 = pkgs.linuxPackages.nvidiaPackages.latest.src.outputHash;
+    nixGL = {
+      defaultWrapper = "nvidia";
+      installScripts = [ "nvidia" ];
+      packages = {
+        nixGLNvidia = pkgs.writeShellScriptBin "nixGLNvidia" ''
+          exec ${lib.getExe pkgs.nix-gl-host} -d /usr/lib "$@"
+        '';
+        nixGLIntel = pkgs.writeShellScriptBin "nixGLIntel" ''
+          exec ${lib.getExe pkgs.nix-gl-host} -d /usr/lib "$@"
+        '';
+      };
     };
   };
 
@@ -21,7 +31,8 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    firefox
+    (config.lib.nixGL.wrap firefox)
+    nix-gl-host
     zathura
   ];
 

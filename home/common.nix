@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ../programs/neovim
@@ -99,7 +99,7 @@
     enable = true;
     enableFishIntegration = true;
 
-    package = if pkgs.stdenv.isDarwin then null else pkgs.ghostty;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then null else (config.lib.nixGL.wrap pkgs.ghostty);
     settings = {
       theme = "Carbonfox";
       font-size = 13;
